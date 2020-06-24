@@ -59,6 +59,32 @@ public class QueryProcessor {
             Integer val = Integer.parseInt(plusNums[2])+Integer.parseInt(plusNums[4]);
             return val.toString();
         }
+        if (query.toLowerCase().contains("square and a cube")) {
+            String[] splitQ = query.split(":");
+            List<Integer> numbers = Arrays.asList(splitQ[2].split(","))
+                    .stream()
+                    .map(String::trim)
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
+            String ans = numbers.stream()
+                    .filter(num -> isSqaure(num))
+                    .filter(num -> isCube(num))
+                    .map( n -> n.toString() )
+                    .collect( Collectors.joining( "," ) );
+
+            return ans;
+        }
         return "";
+    }
+
+    boolean isSqaure(double input) {
+        double cubeRoot = Math.sqrt(input); // get the cube root
+        return Math.round(cubeRoot) == cubeRoot; // determine if number is integral
+    }
+    boolean isCube(double input) {
+        double cubeRoot = Math.cbrt(input); // get the cube root
+        return Math.round(cubeRoot) == cubeRoot; // determine if number is integral
+        // Sorry for the stupid integrity determination. I tried to answer fast
+        // and really couldn't remember the better way to do that :)
     }
 }

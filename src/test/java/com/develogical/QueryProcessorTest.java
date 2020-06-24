@@ -29,5 +29,9 @@ public class QueryProcessorTest {
   public void testReturnPlus() throws Exception {
     assertThat(queryProcessor.process("c35647e0: what is 15 plus 1\n"), is("16"));
   }
+  @Test
+  public void testReturnSqaureCube() throws Exception {
+    assertThat(queryProcessor.process("c35647e0: which of the following numbers is both a square and a cube: 729, 1444, 4, 563\n"), is("729"));
+  }
 //  which of the following numbers is both a square and a cube: 162, 1444, 4, 563
 }
