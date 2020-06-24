@@ -103,7 +103,22 @@ public class QueryProcessor {
 
             return ans;
         }
+        if (query.toLowerCase().contains("fibonacci")) {
+            String[] splitQ = query.split(":");
+            String[] fibS = splitQ[1].trim().split(" ");
+            String numberOnly= fibS[3].replaceAll("[^0-9]", "");
+            return fib(Integer.parseInt(numberOnly)).toString();
+        }
         return "";
+    }
+
+    // Function to find n'th Fibonacci number
+    public static Integer fib(int n)
+    {
+        if (n <= 1)
+            return n;
+
+        return fib(n - 1) + fib(n - 2);
     }
 
     boolean isPrime(long n) {

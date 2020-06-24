@@ -45,4 +45,9 @@ public class QueryProcessorTest {
   public void testReturnMinus() throws Exception {
     assertThat(queryProcessor.process("  0ab3c7e0: what is 10 minus 14\n"), is("-4"));
   }
+  @Test
+  public void testReturnFib() throws Exception {
+    assertThat(queryProcessor.process("   5131d0c0: what is the 18th number in the Fibonacci sequence\n"), is("2584"));
+  }
+
 }
