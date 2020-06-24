@@ -74,7 +74,32 @@ public class QueryProcessor {
 
             return ans;
         }
+        if (query.toLowerCase().contains("prime")) {
+            String[] splitQ = query.split(":");
+            List<Integer> numbers = Arrays.asList(splitQ[2].split(","))
+                    .stream()
+                    .map(String::trim)
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toList());
+            String ans = numbers.stream()
+                    .filter(num -> isPrime(num))
+                    .map( n -> n.toString() )
+                    .collect( Collectors.joining( "," ) );
+
+            return ans;
+        }
         return "";
+    }
+
+    boolean isPrime(long n) {
+        if(n < 2) return false;
+        if(n == 2 || n == 3) return true;
+        if(n%2 == 0 || n%3 == 0) return false;
+        long sqrtN = (long)Math.sqrt(n)+1;
+        for(long i = 6L; i <= sqrtN; i += 6) {
+            if(n%(i-1) == 0 || n%(i+1) == 0) return false;
+        }
+        return true;
     }
 
     boolean isSqaure(double input) {
