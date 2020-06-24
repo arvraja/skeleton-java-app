@@ -37,4 +37,8 @@ public class QueryProcessorTest {
   public void testPrime() throws Exception {
     assertThat(queryProcessor.process("c35647e0: which of the following numbers are primes: 275, 409\n"), is("409"));
   }
+  @Test
+  public void testReturnmult() throws Exception {
+    assertThat(queryProcessor.process("c35647e0: what is 19 multiplied by 2\n"), is("38"));
+  }
 }
