@@ -109,6 +109,12 @@ public class QueryProcessor {
             String numberOnly= fibS[3].replaceAll("[^0-9]", "");
             return fib(Integer.parseInt(numberOnly)).toString();
         }
+        if (query.toLowerCase().contains("power")) {
+            String[] splitQ = query.split(":");
+            String[] plusNums = splitQ[1].trim().split(" ");
+            Double val = Math.pow(Integer.parseInt(plusNums[2]),Integer.parseInt(plusNums[7]));
+            return val.toString();
+        }
         return "";
     }
 

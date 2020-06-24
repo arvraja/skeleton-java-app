@@ -50,4 +50,8 @@ public class QueryProcessorTest {
     assertThat(queryProcessor.process("   5131d0c0: what is the 18th number in the Fibonacci sequence\n"), is("2584"));
   }
 
+  @Test
+  public void testReturnPower() throws Exception {
+    assertThat(queryProcessor.process("   44f19eb0: what is 6 to the power of 4\n"), is("1296.0"));
+  }
 }
