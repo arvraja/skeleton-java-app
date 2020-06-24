@@ -44,6 +44,9 @@ public class QueryProcessor {
     }
 
     public String process(String query) {
+        if (query.toLowerCase().contains("theresa may")) {
+            return "2016";
+        }
         if (query.toLowerCase().contains("which of the following numbers is the largest")) {
             String[] splitQ = query.split(":");
             List<Integer> numbers = Arrays.asList(splitQ[2].split(","))
