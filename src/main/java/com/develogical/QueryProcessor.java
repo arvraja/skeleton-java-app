@@ -11,24 +11,6 @@ public class QueryProcessor {
 
     private Map<String, String> myAuthorList;
 
-//    QueryProcessor() {
-//        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-//        try(InputStream inputStream = classloader.getResourceAsStream("BooksList.csv")) {
-//            InputStreamReader streamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-//            //try (BufferedReader in = new BufferedReader(streamReader)){
-//            BufferedReader in = new BufferedReader(streamReader);
-//            myAuthorList = in
-//                    .lines()
-//                    .skip(1)
-//                    .map(line -> line.split(","))
-//                    .collect(Collectors.toMap(line -> line[0], line -> line[1]));
-//        }
-//        catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public String process(String query) {
         if (query.toLowerCase().contains("romeo and juliet")) {
@@ -37,10 +19,9 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("gift of the magi")) {
             return "O'Henry";
         }
-//        return myAuthorList.entrySet()
-//                .stream()
-//                .filter(entry -> query.toLowerCase().contains(entry.getKey().toLowerCase()))
-//                .map(e -> e.toString()).collect(Collectors.joining( "," ));
-        return "Arv";
+        if (query.toLowerCase().contains("what is your name")) {
+            return "Arv";
+        }
+        return "";
     }
 }
