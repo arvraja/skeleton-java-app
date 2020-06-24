@@ -21,7 +21,13 @@ public class QueryProcessorTest {
 //  }
 //
   @Test
-  public void testReturnNumber() throws Exception {
+  public void testReturnMaxNumber() throws Exception {
     assertThat(queryProcessor.process("c35647e0: which of the following numbers is the largest: 673, 98, 74, 940\n"), is("940"));
   }
+
+  @Test
+  public void testReturnPlus() throws Exception {
+    assertThat(queryProcessor.process("c35647e0: what is 15 plus 1\n"), is("16"));
+  }
+//  which of the following numbers is both a square and a cube: 162, 1444, 4, 563
 }
