@@ -31,12 +31,12 @@ public class QueryProcessor {
 //    }
 
     public String process(String query) {
-//        if (query.toLowerCase().contains("romeo and juliet")) {
-//            return "William Shakespeare";
-//        }
-//        if (query.toLowerCase().contains("gift of the magi")) {
-//            return "O'Henry";
-//        }
+        if (query.toLowerCase().contains("romeo and juliet")) {
+            return "William Shakespeare";
+        }
+        if (query.toLowerCase().contains("gift of the magi")) {
+            return "O'Henry";
+        }
 //        return myAuthorList.entrySet()
 //                .stream()
 //                .filter(entry -> query.toLowerCase().contains(entry.getKey().toLowerCase()))
