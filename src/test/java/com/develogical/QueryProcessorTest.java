@@ -10,18 +10,18 @@ public class QueryProcessorTest {
 
   QueryProcessor queryProcessor = new QueryProcessor();
 
+//  @Test
+//  public void knowsWhoWroteRomeoAndJuliet() throws Exception {
+//    assertThat(queryProcessor.process("Who wrote Romeo And Juliet"), containsString("Shakespeare"));
+//  }
+//
+//  @Test
+//  public void isNotCaseSensitive() throws Exception {
+//    assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
+//  }
+//
   @Test
-  public void knowsWhoWroteRomeoAndJuliet() throws Exception {
-    assertThat(queryProcessor.process("Who wrote Romeo And Juliet"), containsString("Shakespeare"));
-  }
-
-  @Test
-  public void isNotCaseSensitive() throws Exception {
-    assertThat(queryProcessor.process("who wrote romeo and juliet"), containsString("Shakespeare"));
-  }
-
-  @Test
-  public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-    assertThat(queryProcessor.process("test"), is(""));
+  public void testReturnNumber() throws Exception {
+    assertThat(queryProcessor.process("c35647e0: which of the following numbers is the largest: 673, 98, 74, 940\n"), is("940"));
   }
 }

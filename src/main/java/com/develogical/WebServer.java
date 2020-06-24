@@ -17,6 +17,8 @@ import org.eclipse.jetty.servlet.Source;
 
 public class WebServer {
 
+  private static QueryProcessor myQueryProcessor;
+
   public WebServer() throws Exception {
 
     Server server = new Server(portNumberToUse());
@@ -26,6 +28,7 @@ public class WebServer {
     handler.addServletWithMapping(new ServletHolder(new Api()), "/api/*");
     server.setHandler(handler);
 
+    myQueryProcessor = new QueryProcessor();
     server.start();
   }
 
@@ -33,7 +36,7 @@ public class WebServer {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       String query = req.getParameter("q");
-      new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
+      new ApiResponse(myQueryProcessor.process(query)).writeTo(resp);
     }
   }
 
