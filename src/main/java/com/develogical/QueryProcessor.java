@@ -62,6 +62,12 @@ public class QueryProcessor {
             Integer val = Integer.parseInt(plusNums[2])+Integer.parseInt(plusNums[4]);
             return val.toString();
         }
+        if (query.toLowerCase().contains("minus")) {
+            String[] splitQ = query.split(":");
+            String[] plusNums = splitQ[1].trim().split(" ");
+            Integer val = Integer.parseInt(plusNums[2])-Integer.parseInt(plusNums[4]);
+            return val.toString();
+        }
         if (query.toLowerCase().contains("multiplied")) {
             String[] splitQ = query.split(":");
             String[] plusNums = splitQ[1].trim().split(" ");

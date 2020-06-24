@@ -41,4 +41,8 @@ public class QueryProcessorTest {
   public void testReturnmult() throws Exception {
     assertThat(queryProcessor.process("c35647e0: what is 19 multiplied by 2\n"), is("38"));
   }
+  @Test
+  public void testReturnMinus() throws Exception {
+    assertThat(queryProcessor.process("  0ab3c7e0: what is 10 minus 14\n"), is("-4"));
+  }
 }
